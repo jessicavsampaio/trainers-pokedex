@@ -35,8 +35,6 @@ export const PokemonCardDiv = styled.div`
     .imagem {
         position: absolute;
         bottom: -55px;
-        background-color: white;
-        border-radius: 50%;
         align-self: center;
     }
 

@@ -4,34 +4,65 @@ import { ContainerDiv } from "./styles";
 import axios from "axios";
 
 export default function Container() {
+    const baseURL = 'https://pokeapi.co/api/v2'
+    const offset = 30
     const [pokemons, setPokemons] = useState([])
+    const [counter, setCounter] = useState(1)
+    const [limit, setLimit] = useState(30)
+    const [loading, setLoading] = useState(false)
+    const [stopElement, setStopElement] = useState(114)
 
     useEffect(() => {
+        getPokemons()
+    }, [])
+
+    async function getPokemons() {
+        if (loading) return
+
+        setLoading(true)
 
         var urlsPokemons = []
-        for (let i = 1; i < 1017; i++) {
-            urlsPokemons.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
 
+        if (stopElement < 1021) {
+            for (let i = counter; i <= limit; i++) {
+                if(i > 1017) {
+                    continue
+                }
+                urlsPokemons.push(`${baseURL}/pokemon/${i}`)
+            }
+            setLimit(limit + offset)
+            setCounter(counter + offset)
+            console.log(counter, limit, stopElement)
+            
+            setStopElement(limit + 1)
+        } else {
+            for (let i = 10001; i <= 10275; i++) {
+                urlsPokemons.push(`${baseURL}/pokemon/${i}`)
+            }
         }
-        for (let i = 10001; i < 10275; i++) {
-            urlsPokemons.push(`https://pokeapi.co/api/v2/pokemon/${i}`)
-        }
-        console.log(urlsPokemons)
 
-        const requests = urlsPokemons.map(url => axios.get(url)) //array com promises de cada url
 
-        Promise.all(requests)
-            .then((response) => {
-                const data = response.map(res => res.data)
-                setPokemons(data)
-                console.log(data)
+        var promises = urlsPokemons.map(url => axios.get(url))
+
+        Promise.all(promises)
+            .then((requests) => {
+                const data = requests.map(res => res.data)
+                setPokemons([...pokemons, ...data])
+                console.log([...pokemons, ...data])
+                setLoading(false)
             })
-
-    }, [])
+    }
 
     return (
         <ContainerDiv>
-            <PokemonCard pokemons={pokemons} />
+            <div className="pokemonList">
+                <PokemonCard pokemons={pokemons} />
+            </div>
+            {pokemons.length >= 1292 ? (
+                <p></p>
+            ) : (
+                <button onClick={getPokemons}>+ Carregar mais Pokémons</button>
+            )}
         </ContainerDiv>
     )
 }

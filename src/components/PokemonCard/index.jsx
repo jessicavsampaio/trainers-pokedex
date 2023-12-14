@@ -13,7 +13,7 @@ export default function PokemonCard({ pokemons }) {
                                     <h3>{pokemon.name}</h3>
                                 </div>
                                 <div className="imagem">
-                                    <img src={pokemon.sprites.front_default ? pokemon.sprites.front_default : pokemon.sprites.front_shiny} alt={pokemon.name} />
+                                    <img src={pokemon.sprites.other.home.front_default ? pokemon.sprites.other.home.front_default : pokemon.sprites.front_default || pokemon.sprites.front_shiny || pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} />
                                 </div>
                             </div>
                             <div className="rodape">
@@ -25,9 +25,6 @@ export default function PokemonCard({ pokemons }) {
                                     })}
 
                                 </div>
-                                <h4>Sobre</h4>
-                                <p>Altura: {pokemon.height}</p>
-                                <p>Peso: {pokemon.weight}</p>
                                 <a href="#">Ver mais</a>
                             </div>
                         </PokemonCardDiv>
