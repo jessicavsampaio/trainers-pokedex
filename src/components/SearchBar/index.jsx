@@ -15,6 +15,13 @@ export default function SearchBar({ pokemonFilter }) {
 
     const handleClick = () => {
         pokemonFilter(searchValue, searchType)
+        setSearchValue("")
+    }
+
+    const handleClearFilters = () => {
+        setSearchValue("")
+        setSearchType("nome")
+        pokemonFilter("", "nome")
     }
 
     return (
@@ -94,7 +101,7 @@ export default function SearchBar({ pokemonFilter }) {
             )}
 
             <button onClick={handleClick}>Buscar</button>
-            <button>Limpar filtros</button>
+            <button onClick={handleClearFilters}>Limpar filtros</button>
         </SearchBarDiv>
     )
 }

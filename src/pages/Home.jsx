@@ -7,15 +7,16 @@ import axios from 'axios'
 export default function Home() {
   const baseURL = 'https://pokeapi.co/api/v2'
   const [pokemons, setPokemons] = useState([])
+  const [filteredPokemons, setFilteredPokemons] = useState([])
 
 
   useEffect(() => {
-    pokemonFilter("")
+    allPokemons()
   }, [])
 
   const pokemonFilter = (value, type) => {
     if(value === "") {
-      allPokemons()
+      setFilteredPokemons(pokemons)
       return
     }
 
@@ -27,21 +28,21 @@ export default function Home() {
         (type1 && type1.name.toLowerCase().includes(value.toLowerCase()))
     }
     
-    let filteredPokemons = []
+    let newFilteredPokemons = []
     switch (type) {
       case 'nome':
-        filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(value.toLowerCase()))
+        newFilteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(value.toLowerCase()))
         break
       case 'tipo':
-        filteredPokemons = pokemons.filter(isTheSameType)
+        newFilteredPokemons = pokemons.filter(isTheSameType)
         break
       case 'nome-tipo':
-        filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(value.toLowerCase())).concat(pokemons.filter(isTheSameType))
+        newFilteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(value.toLowerCase())).concat(pokemons.filter(isTheSameType))
         break
       default:
         break
     }
-    setPokemons(filteredPokemons)
+    setFilteredPokemons(newFilteredPokemons)
   }
 
   async function allPokemons() {
@@ -57,54 +58,18 @@ export default function Home() {
       .then((requests) => {
         const data = requests.map(res => res.data)
         setPokemons(data)
+        setFilteredPokemons(data)
       })
       .catch((error) => {
         console.log("Erro ao buscar todos os Pokémons", error)
       })
-
   }
-
-
-  // async function getPokemons() {
-  //   if (loading) return
-
-  //   setLoading(true)
-
-    // let urlsPokemons = []
-
-    // if (stopElement < 1021) {
-    //   for (let i = counter; i <= limit; i++) {
-    //     urlsPokemons.push(`${baseURL}/pokemon/${i}`)
-    //   }
-    //   setLimit(limit + offset)
-    //   setCounter(counter + offset)
-    //   console.log(counter, limit, stopElement)
-
-    //   setStopElement(limit + 1)
-    // }
-
-    // var promises = urlsPokemons.map(url => axios.get(url))
-
-    // Promise.all(promises)
-    //   .then((requests) => {
-    //     const data = requests.map(res => res.data)
-    //     setPokemons([...pokemons, ...data])
-    //     console.log("pokemons iniciais:", [...pokemons, ...data].length)
-    //     setLoading(false)
-    //   })
-  // }
-
 
   return (
     <>
       <NavBar />
       <SearchBar pokemonFilter={pokemonFilter} />
-      <Container pokemons={pokemons} />
-      {/* {pokemons.length >= 1017 ? (
-        <p></p>
-      ) : (
-        <button onClick={getPokemons}>+ Carregar mais Pokémons</button>
-      )} */}
+      <Container pokemons={filteredPokemons} />
     </>
   )
 }

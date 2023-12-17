@@ -3,9 +3,9 @@ import { PokemonCardDiv } from "./styles"
 export default function PokemonCard({ pokemons }) {
     return (
         <>
-            {pokemons.map((pokemon) => {
+            {pokemons.map((pokemon, index) => {
                 return (
-                    <div key={pokemon.name}>
+                    <div key={index}>
                         <PokemonCardDiv>
                             <div className={`cabecalho ${pokemon.types[0].type.name}`}>
                                 <div className="topInfo">

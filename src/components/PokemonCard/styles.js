@@ -84,7 +84,8 @@ export const PokemonCardDiv = styled.div`
     }
 
     a:hover {
-        color: grey;
+        font-weight: 700;
+        transform: scale(1.1)
     }
 
     //Cores dos cards por tipo

@@ -31,6 +31,10 @@ export const SearchBarDiv = styled.div`
         width: 18rem;
     }
 
+    fieldset p {
+        font-weight: 600;
+    }
+
     fieldset div {
         display: flex;
         gap: 10px;
@@ -42,6 +46,10 @@ export const SearchBarDiv = styled.div`
         gap: 2px;
     }
 
+    .radio-div:hover {
+        font-weight: 600;
+    }
+
     > button {
         border: none;
         border-radius: 5px;
@@ -49,6 +57,11 @@ export const SearchBarDiv = styled.div`
         padding: 5px;
         cursor: pointer;
         min-width: 6rem;
+        font-weight: 600;
+    }
+
+    > button:last-child {
+        background-color: #EBEBEB;
     }
 
     > button:hover {
