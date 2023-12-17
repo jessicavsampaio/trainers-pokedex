@@ -7,7 +7,7 @@ export default function Container({pokemons}) {
     return (
         <ContainerDiv>
             <div className="pokemonList">
-                <PokemonCard pokemons={pokemons} />
+                {pokemons.length > 0 ? (<PokemonCard pokemons={pokemons} />) : <p>O Pokémon/Tipo pesquisado não existe na Pokedéx.</p>}
             </div>
         </ContainerDiv>
     )
