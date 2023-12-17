@@ -6,8 +6,8 @@ export default function PokemonCard({ pokemons }) {
             {pokemons.map((pokemon) => {
                 return (
                     <div key={pokemon.name}>
-                        <PokemonCardDiv className="pokemonCardDiv">
-                            <div className="cabecalho">
+                        <PokemonCardDiv>
+                            <div className={`cabecalho ${pokemon.types[0].type.name}`}>
                                 <div className="topInfo">
                                     <p>#{pokemon.id.toString().padStart(4, '0')}</p>
                                     <h3>{pokemon.name}</h3>
@@ -20,7 +20,9 @@ export default function PokemonCard({ pokemons }) {
                                 <div className="pokemonType">
                                     {pokemon.types.map((type, index) => {
                                         return (
-                                            <h5 key={index}>{type.type.name}</h5>
+                                            <div className={type.type.name} key={index}>
+                                                <h5>{type.type.name}</h5>
+                                            </div>
                                         )
                                     })}
 

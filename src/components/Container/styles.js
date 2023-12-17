@@ -20,6 +20,7 @@ export const ContainerDiv = styled.div`
         border: none;
         font-weight: 600;
         margin-bottom: 30px;
+        cursor: pointer;
     }
 
     > button:hover {
