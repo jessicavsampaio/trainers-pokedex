@@ -6,7 +6,18 @@ export const PokemonCardDiv = styled.div`
     align-items: center;
     width: 20rem;
     border-radius: 15px;
-    box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+
+    .card {
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0px 5px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+        transition: 200ms;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 1);
+    }
     
     .topInfo {
         display: flex;
@@ -24,7 +35,7 @@ export const PokemonCardDiv = styled.div`
         width: 100%;
         display: flex;
         flex-direction: column;
-        border-radius: 15px 15px 0 0;
+        border-radius: 14px 14px 0 0;
         padding: 15px 15px 0;
         height: 130px;
         position: relative;
@@ -43,11 +54,6 @@ export const PokemonCardDiv = styled.div`
         justify-content: center;
     }
 
-    .imagem:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-    }
-
     img {
         max-width: 130px;
         align-self: center;
@@ -58,12 +64,14 @@ export const PokemonCardDiv = styled.div`
         flex-direction: column;
         align-items: center;
         padding: 65px 15px 30px;
+        background-color: #ffffff;
+        border-radius: 0 0 15px 15px;
     }
 
     .pokemonType {
         display: flex;
         gap: 10px;
-        padding-bottom: 10px;
+        margin-bottom: 20px;
         color: #ffffff;
     }
 

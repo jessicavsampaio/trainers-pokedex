@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom'
 import { NavBarDiv } from './styles'
 
 export default function NavBar() {
   return (
     <NavBarDiv>
         <div>
-            <a><img src="../../../assets/pokemon.png" /></a>
+            <Link to={`/`}><img src="../../../assets/pokemon.png" /></Link>
         </div>
 
         <nav>

@@ -6,6 +6,10 @@ export const NavBarDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 10px 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
 
     img {
         width: 40px;

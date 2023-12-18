@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SearchBarDiv = styled.div`
-    margin-top: 30px;
+    margin-top: 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -65,6 +65,6 @@ export const SearchBarDiv = styled.div`
     }
 
     > button:hover {
-        background-color: #F6F1E9;
+        background-color: #E38B29;
     }
 `
