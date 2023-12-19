@@ -85,6 +85,11 @@ export const CardDetailsDiv = styled.div`
 
         .image {
             border-right: none;
+            padding-right: 0;
+        }
+
+        .infos {
+            align-items: center;
         }
     }
 `

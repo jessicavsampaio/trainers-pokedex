@@ -3,19 +3,33 @@ import NavBar from '../components/NavBar'
 import SearchBar from '../components/SearchBar'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { TeamProvider } from '../contexts/teamContext'
+
+const teamKey = "team"
 
 export default function Home() {
   const baseURL = 'https://pokeapi.co/api/v2'
   const [pokemons, setPokemons] = useState([])
   const [filteredPokemons, setFilteredPokemons] = useState([])
+  const [team, setTeam] = useState([])
+  const [isLoading, setIsLoading] = useState(true)
 
+  const loadTeamPokemons = () => {
+    const pokemons = JSON.parse(window.localStorage.getItem(teamKey)) || []
+    setTeam(pokemons)
+  }
 
   useEffect(() => {
+    setIsLoading(true)
     allPokemons()
   }, [])
 
+  useEffect(() => {
+    loadTeamPokemons()
+  }, [])
+
   const pokemonFilter = (value, type) => {
-    if(value === "") {
+    if (value === "") {
       setFilteredPokemons(pokemons)
       return
     }
@@ -23,11 +37,11 @@ export default function Home() {
     function isTheSameType(pokemon) {
       const type0 = pokemon.types && pokemon.types[0] && pokemon.types[0].type
       const type1 = pokemon.types && pokemon.types[1] && pokemon.types[1].type
-      
+
       return type0.name.toLowerCase().includes(value.toLowerCase()) ||
         (type1 && type1.name.toLowerCase().includes(value.toLowerCase()))
     }
-    
+
     let newFilteredPokemons = []
     switch (type) {
       case 'nome':
@@ -59,17 +73,48 @@ export default function Home() {
         const data = requests.map(res => res.data)
         setPokemons(data)
         setFilteredPokemons(data)
+        setIsLoading(false)
       })
       .catch((error) => {
+        setIsLoading(false)
         console.log("Erro ao buscar todos os Pokémons", error)
       })
   }
 
+  const updateTeamPokemons = (name) => {
+    const updatedTeam = [...team]
+    const isThisPokemonInTeam = updatedTeam.includes(name)
+
+    if(isThisPokemonInTeam) {
+      const teamIndex = team.indexOf(name)
+      updatedTeam.splice(teamIndex, 1)
+    } else {
+      if(updatedTeam.length < 5) {
+        updatedTeam.push(name)
+      } else {
+        alert("Time Cheio! O time já possui 5 Pokémons.")
+      }
+    }
+    window.localStorage.setItem(teamKey, JSON.stringify(updatedTeam))
+    setTeam(updatedTeam)
+  }
+
   return (
     <>
-      <NavBar />
-      <SearchBar pokemonFilter={pokemonFilter} />
-      <Container pokemons={filteredPokemons} />
+      <TeamProvider value={{ teamPokemons: team, updateTeamPokemons: updateTeamPokemons }}>
+        <NavBar />
+        <SearchBar pokemonFilter={pokemonFilter} />
+        <div style={{textAlign: "center", marginTop: "20px", backgroundColor: "#F6F1E9"}}>
+          <h3>Time atual:</h3>
+          <div>
+            {team.map((pokemon, index) => (
+              <p key={index} style={{textTransform: "capitalize"}}>{index+1}: {pokemon} </p>
+            ))}
+          </div>
+        </div>
+    
+        <Container pokemons={isLoading ? Array(10).fill(null) : filteredPokemons} isLoading={isLoading} />
+      </TeamProvider>
     </>
   )
 }

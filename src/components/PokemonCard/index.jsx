@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom"
 import { PokemonCardDiv } from "./styles"
+import { FiUserPlus, FiUserCheck } from "react-icons/fi";
+import { useContext } from "react";
+import TeamContext from "../../contexts/teamContext";
 
 export default function PokemonCard({ pokemons }) {
+    const {teamPokemons, updateTeamPokemons} = useContext(TeamContext)
+    console.log(teamPokemons)
+
     return (
         <>
             {pokemons.map((pokemon, index) => {
@@ -29,10 +35,13 @@ export default function PokemonCard({ pokemons }) {
                                         })}
 
                                     </div>
-                                    <div>
+                                    <div className="links">
                                         <Link to={`/details/${pokemon.id}`}>
-                                            Ver mais
+                                            Evoluções
                                         </Link>
+                                        <button onClick={() => updateTeamPokemons(pokemon.name)}>
+                                            {teamPokemons.includes(pokemon.name) ? <FiUserCheck style={{color: "green"}} /> : <FiUserPlus />}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -40,9 +49,6 @@ export default function PokemonCard({ pokemons }) {
                     </div>
                 )
             })}
-
-
-
         </>
     )
 }

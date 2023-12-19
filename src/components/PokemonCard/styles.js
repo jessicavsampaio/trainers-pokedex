@@ -88,12 +88,35 @@ export const PokemonCardDiv = styled.div`
     a {
         color: black;
         font-weight: 500;
-        margin-top: 10px;
     }
 
     a:hover {
-        font-weight: 700;
-        transform: scale(1.1)
+        color: #E38B29;
+    }
+
+    button {
+        border-radius: 10px;
+        border: 1px solid #F0F0F0;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button:hover {
+        background-color: #E38B29;
+    }
+
+    .links {
+        display: flex;
+        align-items: center;
+        gap: 120px;
+    }
+
+    .links svg {
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
     }
 
     //Cores dos cards por tipo

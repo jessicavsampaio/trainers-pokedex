@@ -5,7 +5,7 @@ export const NavBarDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 10px 8rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -20,13 +20,29 @@ export const NavBarDiv = styled.div`
         gap: 15px;
     }
 
-    ul li {
-        list-style-type: none;
+    ul a {
+        text-decoration: none;
         font-size: 18px;
+        color: #000000;
+        font-weight: 500;
     }
 
-    ul li:hover {
-        font-weight: 600;
+    ul a:hover {
         cursor: pointer;
+        color: #E38B29;
+    }
+
+    span {
+        color: red;
+        border: 1px solid grey;
+        border-radius: 50%;
+        padding: 0 8px;
+        position: absolute;
+        top: 10px;
+    }
+
+    @media (max-width: 600px) {
+        justify-content: space-around;
+        padding: 10px 0;
     }
 `;
