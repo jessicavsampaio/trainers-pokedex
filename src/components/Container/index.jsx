@@ -7,6 +7,10 @@ export default function Container({pokemons, isLoading}) {
 
     return (
         <ContainerDiv>
+            <div>
+            <h2>Pokedéx</h2>
+
+            </div>
             <div className="pokemonList">
                 {isLoading ? 
                 Array(1).fill(null).map((_, index) => <SkeletonCard key={index} />)

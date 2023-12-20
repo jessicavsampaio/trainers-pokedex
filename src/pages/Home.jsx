@@ -22,11 +22,19 @@ export default function Home() {
   useEffect(() => {
     setIsLoading(true)
     allPokemons()
+    getPokemonByPage(20,0)
   }, [])
 
   useEffect(() => {
     loadTeamPokemons()
   }, [])
+
+  async function getPokemonByPage(limit, offset) {
+    axios.get(`https://pokeapi.co/api/v2/pokemon?limit=${limit}&offset=${offset}`)
+    .then((response) => {
+      console.log(response.data.results)
+    })
+  }
 
   const pokemonFilter = (value, type) => {
     if (value === "") {
@@ -104,14 +112,14 @@ export default function Home() {
       <TeamProvider value={{ teamPokemons: team, updateTeamPokemons: updateTeamPokemons }}>
         <NavBar />
         <SearchBar pokemonFilter={pokemonFilter} />
-        <div style={{textAlign: "center", marginTop: "20px", backgroundColor: "#F6F1E9"}}>
+        {team.length !== 0 ? (<div style={{textAlign: "center", margin: "10px", backgroundColor: "#e1e1e1", padding: "10px"}}>
           <h3>Time atual:</h3>
           <div>
             {team.map((pokemon, index) => (
               <p key={index} style={{textTransform: "capitalize"}}>{index+1}: {pokemon} </p>
             ))}
           </div>
-        </div>
+        </div>) : <p></p>}
     
         <Container pokemons={isLoading ? Array(10).fill(null) : filteredPokemons} isLoading={isLoading} />
       </TeamProvider>

@@ -17,6 +17,7 @@ export const NavBarDiv = styled.div`
 
     ul {
         display: flex;
+        align-items: center;
         gap: 15px;
     }
 
@@ -25,6 +26,7 @@ export const NavBarDiv = styled.div`
         font-size: 18px;
         color: #000000;
         font-weight: 500;
+        display: flex;
     }
 
     ul a:hover {
@@ -37,8 +39,8 @@ export const NavBarDiv = styled.div`
         border: 1px solid grey;
         border-radius: 50%;
         padding: 0 8px;
-        position: absolute;
-        top: 10px;
+        position: relative;
+        top: -5px;
     }
 
     @media (max-width: 600px) {

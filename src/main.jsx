@@ -4,6 +4,8 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Details from './pages/Details.jsx'
 import Home from './pages/Home.jsx'
 import GlobalStyles from './global'
+import Register from './pages/Register.jsx'
+import Login from './pages/Login.jsx'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +15,14 @@ const router = createBrowserRouter([
   {
     path: "/details/:pokemonId",
     element: <Details />
+  },
+  {
+    path: "/register",
+    element: <Register />
+  },
+  {
+    path: "/login",
+    element: <Login />
   },
 ])
 

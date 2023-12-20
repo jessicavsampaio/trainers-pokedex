@@ -5,6 +5,10 @@ export const ContainerDiv = styled.div`
     flex-direction: column;
     align-items: center;
 
+    h2 {
+        margin-top: 10px;
+    }
+
     > .pokemonList {
         width: 100%;
         padding: 2rem;
