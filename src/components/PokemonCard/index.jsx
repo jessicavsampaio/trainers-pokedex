@@ -39,9 +39,15 @@ export default function PokemonCard({ pokemons }) {
                                         <Link to={`/details/${pokemon.id}`}>
                                             Evoluções
                                         </Link>
-                                        <button onClick={() => updateTeamPokemons(pokemon.name)}>
-                                            {teamPokemons.includes(pokemon.name) ? <FiUserCheck style={{color: "green"}} /> : <FiUserPlus />}
-                                        </button>
+                                        
+                                            {teamPokemons.includes(pokemon.name) ? (
+                                            <button onClick={() => updateTeamPokemons(pokemon.name)} style={{backgroundColor: "green"}}>
+                                                <FiUserCheck style={{color: "#ffffff"}} />
+                                            </button>) : 
+                                            (<button onClick={() => updateTeamPokemons(pokemon.name)}>
+                                                <FiUserPlus />
+                                            </button>)}
+                                        
                                     </div>
                                 </div>
                             </div>
