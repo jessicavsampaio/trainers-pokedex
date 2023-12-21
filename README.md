@@ -14,6 +14,7 @@ Criar um sistema onde treinadores possam entrar se cadastrando com o seu nome de
 - [X] Listar todos os pokémons da API
 - [X] Filtrar tanto por nome quanto por tipo ou ambos, se eu não achar o pokémons pesquisando pelo nome quero que seja informado que o pokémon que eu procurei não existe na pokedéx
 - [X] Seja possível visualizar as evoluções dos pokémons
+- [ ] Os treinadores precisem se cadastrar e logar para ter acesso às funcionalidades
 
 ## 📘 Descrição
 Desenvolvi o frontend de uma aplicação web de listagem de Pokémons, onde é possível procurar um Pokémon por nome, tipo ou ambos, além de ser possível criar times de até 5 Pokémons.
@@ -25,7 +26,7 @@ Lista com as funcionalidades:
 - [X] Filtrar tanto por nome quanto por tipo ou ambos
 - [X] Visualizar as evoluções dos pokémons
 
-![Home](https://github.com/jessicavsampaio/trainers-pokedex/blob/main/assets/Print_Home_.png)
+![Home](https://github.com/jessicavsampaio/trainers-pokedex/blob/main/assets/Print%20Home.png)
 
 ## 🔧 Instalação com Docker
 1. Clone este repositório em: [github/jessicavsampaio](https://github.com/jessicavsampaio/trainers-pokedex)
