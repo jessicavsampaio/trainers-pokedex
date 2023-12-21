@@ -22,7 +22,7 @@ export default function RegisterForm() {
           <input id='confirmarSenha' type='password' onChange={(e) => setPassword(e.target.value)} required placeholder='Digite novamente sua senha' />
         </form>
 
-        <p>Já possui cadastro? <Link to={`/login`}>Cadastrar</Link></p>
+        <p>Já possui cadastro? <Link to={`/login`}>Entrar</Link></p>
 
         <button>Cadastrar</button>
 

@@ -54,7 +54,6 @@ export const FormDiv = styled.div`
         min-width: 6rem;
         font-weight: 600;
         color: #ffffff;
-        margin-top: 15px;
     }
 
     button:hover {
