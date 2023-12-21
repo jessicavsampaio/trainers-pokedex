@@ -9,7 +9,7 @@
 - [ ] Otimizar consultas à API
 
 ## 🎯 Objetivo
-criar um sistema onde treinadores possam entrar se cadastrando com o seu nome de treinador e senha e, ao entrarem possuam essas seguintes funcionalidades:
+Criar um sistema onde treinadores possam entrar se cadastrando com o seu nome de treinador e senha e, ao entrarem possuam essas seguintes funcionalidades:
 - [X] Criar um time de pokémons com 5 pokémons (o total de pokémons no time é 5)
 - [X] Listar todos os pokémons da API
 - [X] Filtrar tanto por nome quanto por tipo ou ambos, se eu não achar o pokémons pesquisando pelo nome quero que seja informado que o pokémon que eu procurei não existe na pokedéx
