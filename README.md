@@ -1,6 +1,12 @@
 # Pokedéx para treinadores
 
 :hourglass: Projeto em desenvolvimento 
+- Pendências:
+- [ ] Criar backend para autenticação
+- [ ] Colocar rotas nas páginas de Registro e Login de usuário
+- [ ] Alterar modo de exibição de times (melhorar uso do Context e talvez usar modal)
+- [ ] Criar paginação para otimizar tempo de carregamento
+- [ ] Otimizar consultas à API
 
 ## 🎯 Objetivo
 criar um sistema onde treinadores possam entrar se cadastrando com o seu nome de treinador e senha e, ao entrarem possuam essas seguintes funcionalidades:
@@ -13,8 +19,7 @@ criar um sistema onde treinadores possam entrar se cadastrando com o seu nome de
 Desenvolvi o frontend de uma aplicação web de listagem de Pokémons, onde é possível procurar um Pokémon por nome, tipo ou ambos, além de ser possível criar times de até 5 Pokémons.
 
 Lista com as funcionalidades:
-- [] Registrar usuário
-- [] Login 
+
 - [X] Criar um time de pokémons com 5 pokémons
 - [X] Listar todos os pokémons da API
 - [X] Filtrar tanto por nome quanto por tipo ou ambos
@@ -22,8 +27,8 @@ Lista com as funcionalidades:
 
 ![Home](https://github.com/jessicavsampaio/trainers-pokedex/blob/main/assets/Print_Home_.png)
 
-## 🔧 Instalação
-1. Clone este repositório em [gitHub/jessicavsampaio](https://github.com/jessicavsampaio/trainers-pokedex)
+## 🔧 Instalação com Docker
+1. Clone este repositório em: [github/jessicavsampaio](https://github.com/jessicavsampaio/trainers-pokedex)
 2. Entre na pasta criada com o comando:
 
 ```
