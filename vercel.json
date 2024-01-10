@@ -1,0 +1,17 @@
+{
+    "rewrites": [
+      {
+        "source": "/images/:path*",
+        "destination": "/images/:path*"
+      },
+      {
+        "source": "/api/:path*",
+        "destination": "https://pokeapi.co/api/v2/pokemon/:path*"
+      },
+      {
+        "source": "/(.*)",
+        "destination": "/"
+      }
+    ]
+  }
+  
