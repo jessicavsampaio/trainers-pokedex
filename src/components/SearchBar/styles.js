@@ -7,7 +7,7 @@ export const SearchBarDiv = styled.div`
     align-items: center;
     gap: 10px;
     padding: 15px 0;
-    background-image: url("../../../assets/banner-pokeball.jpg");
+    background-image: url("./images/banner-pokeball.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position-y: center;

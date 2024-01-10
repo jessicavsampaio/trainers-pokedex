@@ -10,7 +10,7 @@ export default function NavBar() {
   return (
     <NavBarDiv>
       <div>
-        <Link to={`/`}><img src="../../../assets/pokemon.png" alt='Pokemon logo' /></Link>
+        <Link to={`/`}><img src="./images/pokemon.png" alt='Pokemon logo' /></Link>
       </div>
 
       <nav>
