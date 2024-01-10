@@ -18,6 +18,7 @@ Criar um sistema onde treinadores possam entrar se cadastrando com o seu nome de
 
 ## 📘 Descrição
 Desenvolvi o frontend de uma aplicação web de listagem de Pokémons, onde é possível procurar um Pokémon por nome, tipo ou ambos, além de ser possível criar times de até 5 Pokémons.
+Recurso utilizado: [API Pokemon](https://pokeapi.co/)
 
 Lista com as funcionalidades:
 
